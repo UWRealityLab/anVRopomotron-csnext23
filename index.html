@@ -31,6 +31,8 @@
 <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aframe-fps-look-controls-component/dist/aframe-fps-look-controls-component.min.js"></script>
 <script src="js/anvro-122.js"></script>
+<script src="js/src/location-cues/locations.js"></script>
+<script src="js/src/location-cues/location-cue-query.js"></script>
 </head>
 
 <body>
@@ -88,7 +90,7 @@
 <a-entity class="floorplan-zone" position="0 0 0" gltf-model="#room"></a-entity> <!--  Main Building, no Human Evolution-->
 <a-entity class="c-h-div-zone" position="0 0 0" gltf-model="#c-h-dividermodel"></a-entity> <!-- Hominin Transition Zone -->
 
-<a-entity id="rig" rotation-reader movement-controls="speed: 0.1; constrainToNavMesh: true" position="0 0 1"> <!-- Player Character -->
+<a-entity id="rig" rotation-reader movement-controls="speed: 0.1; constrainToNavMesh: true" position="0 0 1" location-cue-query> <!-- Player Character -->
     <a-box id="body" plane-hit aabb-collider="collideNonVisible: true; objects: .zone" static-body="shape: box" position="0 0 0" width="0.25" height="0.25" depth="0.25" visible="false"></a-box>
         <a-entity id="camera" camera look-controls raycaster="far: 5; objects: .clickable" super-hands="colliderEvent: raycaster-intersection; colliderEventProperty: els; colliderEndEvent:raycaster-intersection-cleared; colliderEndEventProperty: clearedEls;" position="0 1.6 0">
             <a-entity id="crosshair" visible="false" cursor="rayOrigin:mouse" position="0 0 -0.2" geometry="primitive: ring; radiusInner: 0.002; radiusOuter: 0.003" material="color: #0055ff; shader: flat" raycaster="far: 5; objects: .clickable"></a-entity>
