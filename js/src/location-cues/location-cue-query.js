@@ -6,8 +6,14 @@ AFRAME.registerComponent('location-cue-query', {
       if(e.code == "KeyT") {
         let currPosition = el.getAttribute("position");
         let locationCue = getNearestLocationCue(currPosition.x, currPosition.y, currPosition.z);
-        console.log(locationCue.title);
-        console.log(locationCue.description);
+        // console.log(locationCue.title);
+        // console.log(locationCue.description);
+
+        // Create a new SpeechSynthesisUtterance object with the location details
+        var utterance = new SpeechSynthesisUtterance(locationCue.description);
+
+        // Use the SpeechSynthesis API to speak the location details
+        window.speechSynthesis.speak(utterance);
       }
     }
 
